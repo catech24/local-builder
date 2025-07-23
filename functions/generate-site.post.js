@@ -1,4 +1,3 @@
-
 export async function onRequestPost(context) {
   const { request } = context;
   try {
@@ -28,16 +27,16 @@ export async function onRequestPost(context) {
 You are an expert in local SEO and Answer Engine Optimization (AEO). Based on the business details provided below, generate a structured content plan and create content modules that match one of these tiers: Mini, Medium, or Power SEO Local Business. All content must be AEO-first, pain-point driven, optimized for local intent, and structured to support internal linking and AI Overviews.
 
 Business Info:
-- Business Name: \${businessName}
-- Niche: \${niche}
-- Services: \${services.join(", ")}
-- Location: \${city}, \${state}, \${zip}
-- Service Area: \${additionalCities}
-- Price Range: \${priceRange}
-- Target Audience: \${customerType}
-- Customer Pain Points: \${painPoints}
+- Business Name: ${businessName}
+- Niche: ${niche}
+- Services: ${services.join(", ")}
+- Location: ${city}, ${state}, ${zip}
+- Service Area: ${additionalCities}
+- Price Range: ${priceRange}
+- Target Audience: ${customerType}
+- Customer Pain Points: ${painPoints}
 
-Tier Selected: \${tier}
+Tier Selected: ${tier}
 
 Content Strategy Output:
 1. List of pages to create
@@ -48,12 +47,12 @@ Content Strategy Output:
    - 2–3 FAQs with schema-ready Q&A
    - CTA with local keyword and contact info
    - Interlink suggestions
-\`;
+`;
 
     const completion = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: \`Bearer \${openaiKey}\`,
+        Authorization: `Bearer ${openaiKey}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
