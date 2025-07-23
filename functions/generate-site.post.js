@@ -24,7 +24,7 @@ export async function onRequestPost(context) {
       });
     }
 
-    const systemPrompt = \`
+    const systemPrompt = `
 You are an expert in local SEO and Answer Engine Optimization (AEO). Based on the business details provided below, generate a structured content plan and create content modules that match one of these tiers: Mini, Medium, or Power SEO Local Business. All content must be AEO-first, pain-point driven, optimized for local intent, and structured to support internal linking and AI Overviews.
 
 Business Info:
