@@ -2,6 +2,8 @@ export async function onRequestPost(context) {
   const { request } = context;
   try {
     const body = await request.json();
+console.log("🔧 Incoming body:", JSON.stringify(body));
+
     const {
       businessName,
       niche,
@@ -65,7 +67,10 @@ Content Strategy Output:
       })
     });
 
-    const result = await completion.json();
+  const resultText = await completion.text();
+console.log("🧠 Raw OpenAI result:", resultText);
+const result = JSON.parse(resultText);
+
 
     if (!result.choices || !result.choices[0]) {
       return new Response(JSON.stringify({ error: "No response from OpenAI" }), {
@@ -81,6 +86,8 @@ Content Strategy Output:
     });
 
   } catch (e) {
+console.log("🔥 Error occurred:", e.message);
+
     return new Response(JSON.stringify({ error: e.message }), {
       status: 500
     });
